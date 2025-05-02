@@ -43,12 +43,7 @@ C++による画像処理アプリケーションを通して、以下のよう�
 
 ## 今後の拡張予定（設計力強化）
 
-- [ ] `CannyProcessor`、`HoughProcessor` などの追加
-- [ ] Processorのチェイン（Compositeパターン）
-- [ ] デコレータによるログやFPS計測（Decoratorパターン）
-- [ ] 外部設定からのProcessor選択（パラメータ or config注入）
 - [ ] MockProcessor導入とGoogleTestでの単体テスト
-- [ ] Clone可能なProcessor設計（Prototypeパターン）
 - [ ] 実装/抽象の独立化（Bridgeパターン）
 - [ ] Type Erasureを使った汎用処理器（型抹消構成）
 - [ ] External Polymorphismの導入
