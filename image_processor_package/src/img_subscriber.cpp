@@ -1,5 +1,5 @@
 #include "image_processor_package/img_subscriber.hpp"
-#include "image_processor_package/passthrough_processor.hpp"
+#include "image_processor_package/processor_interface.hpp"
 
 ImgSubscriber::ImgSubscriber(std::unique_ptr<IProcessor> processor) : Node("img_subscriber"),
                                                                       processor_(std::move(processor))
