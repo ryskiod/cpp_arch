@@ -13,7 +13,7 @@ public:
         {
             return std::make_unique<PassthroughProcessor>();
         }
-        // if (type == "canny")
+        // if (type == "canny") //Processorの追加はここのみ
         // {
 
         // }

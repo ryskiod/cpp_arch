@@ -7,6 +7,7 @@ class PassthroughProcessor : public IProcessor
 public:
     cv::Mat process(const cv::Mat &input) override
     {
+        // 設計が目的なので具体的なアルゴリズム書いていない
         cout << "Called passthrough" << endl;
         return input;
     }
