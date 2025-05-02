@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 
     std::string type{"passthrough"};
 
-    auto processor = ProcessorFactory::create(type);
+    auto processor = ProcessorFactory::create(type); // factory pattern
     auto node = std::make_shared<ImgSubscriber>(std::move(processor));
 
     rclcpp::spin(node);
