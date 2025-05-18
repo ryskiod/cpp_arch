@@ -53,11 +53,6 @@ image_processor_packageをベースにbridgeパターンを導入
 - **Factory パターン**
   - `ImageSourceFactory`, `ProcessorFactory`
 
-  ## 今後の拡張予定
-
-- [✅] 実装/抽象の独立化（Bridgeパターン）
-- [ ] Type Erasureを使った汎用処理器（型抹消構成）
-
 ## image_processor_package_type_erasure
 
 image_processor_packageをベースにtype erasureパターンを導入．
@@ -68,3 +63,8 @@ image_processor_packageをベースにtype erasureパターンを導入．
   - `TypeErasedProcessor`
 - **Factory パターン**
   - `ProcessorFactory`
+
+## 今後の拡張予定
+
+- [✅] 実装/抽象の独立化（Bridgeパターン）
+- [✅] Type Erasureを使った汎用処理器（型抹消構成）
