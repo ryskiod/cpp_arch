@@ -1,12 +1,9 @@
 # cpp_arch
 
-# image_processor_package
+# Goal
 
 ROS2上で画像処理を行うC++ノードの実装を通して、C++のソフトウェア設計を体系的に学習するためのリポジトリ。 
 アルゴリズム実装だけでなく、**依存分離・抽象化・柔軟な設計構造の構築**にフォーカス。
----
-
-## 目的
 
 C++による画像処理アプリケーションを通して、以下のような設計力を身につける：
 
@@ -17,6 +14,18 @@ C++による画像処理アプリケーションを通して、以下のよう�
 - 各種デザインパターンの習得と適用
 
 ---
+
+## 使用技術
+
+- ROS2 (Jazzy)
+- C++17
+- OpenCV
+- `cv_bridge`
+- `ament_cmake`
+
+---
+
+# image_processor_package
 
 ## 構成概要
 
@@ -38,15 +47,6 @@ C++による画像処理アプリケーションを通して、以下のよう�
 | **OCP（開放/閉鎖原則）** 　| ✅        | 新しいProcessor追加時、既存コードを変更不要     |
 | **ユニーク所有権管理**   　| ✅        | `unique_ptr<IProcessor>`で責任を明確化         |
 
-## 使用技術
-
-- ROS2 (Jazzy)
-- C++17
-- OpenCV
-- `cv_bridge`
-- `ament_cmake`
-
----
 
 # image_source_bridge_package
 
