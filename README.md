@@ -4,7 +4,6 @@
 
 ROS2上で画像処理を行うC++ノードの実装を通して、C++のソフトウェア設計を体系的に学習するためのリポジトリ。 
 アルゴリズム実装だけでなく、**依存分離・抽象化・柔軟な設計構造の構築**にフォーカス。
-![System Diagram](fig/image_processor_package_chatgpt.png)
 ---
 
 ## 目的
@@ -39,17 +38,6 @@ C++による画像処理アプリケーションを通して、以下のよう�
 | **OCP（開放/閉鎖原則）** 　| ✅        | 新しいProcessor追加時、既存コードを変更不要     |
 | **ユニーク所有権管理**   　| ✅        | `unique_ptr<IProcessor>`で責任を明確化         |
 
----
-
-## 今後の拡張予定（設計力強化）
-
-- [ ] MockProcessor導入とGoogleTestでの単体テスト
-- [ ] 実装/抽象の独立化（Bridgeパターン）
-- [ ] Type Erasureを使った汎用処理器（型抹消構成）
-- [ ] External Polymorphismの導入
-
----
-
 ## 使用技術
 
 - ROS2 (Jazzy)
@@ -57,5 +45,67 @@ C++による画像処理アプリケーションを通して、以下のよう�
 - OpenCV
 - `cv_bridge`
 - `ament_cmake`
+
+---
+
+# image_source_bridge_package
+
+Bridgeパターンに基づいたC++ / ROS2 による画像処理サンプル。
+抽象インターフェースとFactoryパターンを組み合わせて、拡張性・テスト性に優れた構成を目指す。
+
+---
+
+## Goal
+
+- ✅ 複数の画像ソース（実カメラ / モック）を切り替えて使用可能にする
+- ✅ 処理戦略（Strategy）を柔軟に変更可能にする
+- ✅ main() は実装に依存せず、抽象型だけを扱う
+- ✅ テストのしやすい構成を作る（MockSource導入）
+
+---
+
+## Architecture Overview
+
+- **Bridge パターン**
+  - `IImageSource` ← `CameraSource`, `MockSource`
+- **Factory パターン**
+  - `ImageSourceFactory`, `ProcessorFactory`
+
+main関数がこれらの抽象を注入して、責務を明確に分離する。
+
++---------------------------+
+|        main.cpp          |
+|  (Abstraction/Controller)|
++---------------------------+
+         |         |
+         |         |
+         v         v
++--------------------------+     +--------------------------+
+|      IImageSource        |     |        IProcessor        |
++--------------------------+     +--------------------------+
+         ^                             ^
+         |                             |
++--------------------+         +--------------------------+
+|   CameraSource      |         |  PassthroughProcessor    |
+|   MockSource        |         |  CannyProcessor (future) |
++--------------------+         +--------------------------+
+
+       [Bridge]                           [Strategy]
+
+---
+
+## 🔧 Build
+
+```bash
+colcon build --packages-select image_source_bridge_package
+source install/setup.bash
+
+---
+
+## 今後の拡張予定（設計力強化）
+
+- [✅] 実装/抽象の独立化（Bridgeパターン）
+- [ ] Type Erasureを使った汎用処理器（型抹消構成）
+- [ ] External Polymorphismの導入
 
 ---
