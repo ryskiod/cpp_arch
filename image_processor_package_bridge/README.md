@@ -5,7 +5,7 @@ Bridgeパターンに基づいたC++ / ROS2 による画像処理サンプル。
 
 ---
 
-## Goal
+## 目的
 
 - ✅ 複数の画像ソース（実カメラ / モック）を切り替えて使用可能にする
 - ✅ 処理戦略（Strategy）を柔軟に変更可能にする
@@ -14,7 +14,7 @@ Bridgeパターンに基づいたC++ / ROS2 による画像処理サンプル。
 
 ---
 
-## Architecture Overview
+## 実装済みの設計パターン・原則
 
 - **Bridge パターン**
   - `IImageSource` ← `CameraSource`, `MockSource`
@@ -22,6 +22,8 @@ Bridgeパターンに基づいたC++ / ROS2 による画像処理サンプル。
   - `ImageSourceFactory`, `ProcessorFactory`
 
 main関数がこれらの抽象を注入して、責務を明確に分離する。
+
+## 構成概要
 
 ```txt
 +---------------------------+

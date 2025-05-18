@@ -45,6 +45,8 @@ C++による画像処理アプリケーションを通して、以下のよう�
 
 ## image_source_bridge_package
 
+image_processor_packageをベースにbridgeパターンを導入
+
 ## 実装済みの設計パターン・原則
 - **Bridge パターン**
   - `IImageSource` ← `CameraSource`, `MockSource`
@@ -55,3 +57,14 @@ C++による画像処理アプリケーションを通して、以下のよう�
 
 - [✅] 実装/抽象の独立化（Bridgeパターン）
 - [ ] Type Erasureを使った汎用処理器（型抹消構成）
+
+## image_processor_package_type_erasure
+
+image_processor_packageをベースにtype erasureパターンを導入．
+導入に際し，Strategyパターンは削除
+
+## 実装済みの設計パターン・原則
+- **Type Erasure パターン**
+  - `TypeErasedProcessor`
+- **Factory パターン**
+  - `ProcessorFactory`
