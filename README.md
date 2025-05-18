@@ -37,7 +37,7 @@ C++による画像処理アプリケーションを通して、以下のよう�
   - `文字列から処理クラスを生成`
   - `ProcessorFactory`
 - **Dependency Injection**
-  - `main.cpp`からノードに処理器を注入`
+  - `main.cpp`からノードに処理器を注入
 - **OCP（開放/閉鎖原則）**
   - `新しいProcessor追加時、既存コードを変更不要`
 - **ユニーク所有権管理**
@@ -50,3 +50,8 @@ C++による画像処理アプリケーションを通して、以下のよう�
   - `IImageSource` ← `CameraSource`, `MockSource`
 - **Factory パターン**
   - `ImageSourceFactory`, `ProcessorFactory`
+
+  ## 今後の拡張予定
+
+- [✅] 実装/抽象の独立化（Bridgeパターン）
+- [ ] Type Erasureを使った汎用処理器（型抹消構成）

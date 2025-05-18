@@ -82,9 +82,3 @@ colcon build --packages-select image_source_bridge_package
 source install/setup.bash
 ```
 ---
-
-## 今後の拡張予定（設計力強化）
-
-- [✅] 実装/抽象の独立化（Bridgeパターン）
-- [ ] Type Erasureを使った汎用処理器（型抹消構成）
-- [ ] External Polymorphismの導入
