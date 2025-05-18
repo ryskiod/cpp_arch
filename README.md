@@ -17,9 +17,9 @@ C++による画像処理アプリケーションを通して、以下のよう�
 
 ## 使用技術
 
-- ROS2 (Jazzy)
-- C++17
-- OpenCV
+- `ROS2 (Jazzy)`
+- `C++17`
+- `OpenCV`
 - `cv_bridge`
 - `ament_cmake`
 
@@ -32,10 +32,12 @@ C++による画像処理アプリケーションを通して、以下のよう�
 ## 実装済みの設計パターン・原則
 - **Strategy パターン**
   - `IProcessor`により処理の戦略を切替可能`
+  - `IProcessor`← `PassthroughProcessor`
 - **Factoryパターン**
   - `文字列から処理クラスを生成`
+  - `ProcessorFactory`
 - **Dependency Injection**
-  - ``main.cpp`からノードに処理器を注入`
+  - `main.cpp`からノードに処理器を注入`
 - **OCP（開放/閉鎖原則）**
   - `新しいProcessor追加時、既存コードを変更不要`
 - **ユニーク所有権管理**

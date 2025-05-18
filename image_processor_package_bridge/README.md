@@ -57,13 +57,15 @@ Bridgeパターンの本質は、単なる構造の分離にとどまらず、�
 実装はどこで使われるかを意識せず、抽象が“いつ／何をするか”を定義する
 
 ### このリポジトリにおけるBridgeの適用例
-cpp
-auto source = create("mock");
+```
+auto source = SourceFactory::create(sourceType, node);
+...
 while (rclcpp::ok()) {
     if (auto frame = source->get_frame()) {
         ...
     }
 }
+```
 - IImageSource が Bridgeの抽象クラス
 - CameraSource, MockSource が 実装クラス
 - main.cpp が 制御を担うAbstractionの役割
@@ -78,7 +80,7 @@ while (rclcpp::ok()) {
 ```bash
 colcon build --packages-select image_source_bridge_package
 source install/setup.bash
-
+```
 ---
 
 ## 今後の拡張予定（設計力強化）
